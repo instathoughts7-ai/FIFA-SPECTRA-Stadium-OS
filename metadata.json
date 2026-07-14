@@ -1,0 +1,6 @@
+{
+  "name": "FIFA SPECTRA Stadium OS",
+  "description": "Multi-Agent AI Operating System for FIFA World Cup 2026 Smart Stadiums & Tournament Operations, featuring autonomous agent collaboration, multilingual translation, context-aware routing, and emergency response.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
