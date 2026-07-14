@@ -4,7 +4,7 @@ import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI } from '@google/genai';
 import dotenv from 'dotenv';
 
-dotenv.config();
+dotenv.config({ override: false });
 
 export const app = express();
 const PORT = 3000;
@@ -155,6 +155,38 @@ export function isValidRole(role: unknown): boolean {
   return typeof role === 'string' && VALID_ROLES.includes(role.toUpperCase().trim());
 }
 
+// 🛡️ Server-side Operational Phase State
+type OperationalPhase = 'PRE_MATCH' | 'ACTIVE_MATCH' | 'POST_MATCH';
+let currentPhase: OperationalPhase = 'PRE_MATCH';
+
+export function getCurrentOperationalPhase(): OperationalPhase {
+  return currentPhase;
+}
+
+// 🛡️ Operational Phase Authorization Middleware
+function enforcePhase(allowedPhases: OperationalPhase[]) {
+  return (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if (!allowedPhases.includes(currentPhase)) {
+      console.warn(`[Phase Violation] Unauthorized operational phase attempt for ${req.path} - Current: ${currentPhase}`);
+      return res.status(403).json({
+        error: `Action not permitted in current operational phase: ${currentPhase}`
+      });
+    }
+    next();
+  };
+}
+
+// Endpoint to update operational phase
+app.post('/api/operational-phase', enforceRole(['COMMANDER']), (req, res) => {
+  const { phase } = req.body;
+  if (!['PRE_MATCH', 'ACTIVE_MATCH', 'POST_MATCH'].includes(phase)) {
+    return res.status(400).json({ error: 'Invalid phase' });
+  }
+  currentPhase = phase;
+  console.info(`[Audit Log] Operational phase updated to: ${currentPhase} by Commander`);
+  res.json({ success: true, phase: currentPhase });
+});
+
 export function sanitizeLanguage(lang: unknown): string {
   const sanitized = sanitizeString(lang, 50);
   // Alphanumeric, spaces, hyphens, and parenthesis only (strict language names whitelist)
@@ -231,7 +263,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // 1. CHAT API proxy route with rate limiting, RBAC, input sanitization, and schema validation
-app.post('/api/gemini/chat', rateLimiter, enforceRole(VALID_ROLES), async (req, res) => {
+app.post('/api/gemini/chat', rateLimiter, enforceRole(VALID_ROLES), enforcePhase(['PRE_MATCH', 'ACTIVE_MATCH', 'POST_MATCH']), async (req, res) => {
   const { messages, userRole, preferredLanguage } = req.body;
   const client = getGeminiClient();
 
@@ -319,7 +351,7 @@ app.post('/api/gemini/chat', rateLimiter, enforceRole(VALID_ROLES), async (req, 
 });
 
 // 2. TRANSLATION API proxy route with rate limiting, RBAC, input sanitization, and schema validation
-app.post('/api/gemini/translate', rateLimiter, enforceRole(VALID_ROLES), async (req, res) => {
+app.post('/api/gemini/translate', rateLimiter, enforceRole(VALID_ROLES), enforcePhase(['PRE_MATCH', 'ACTIVE_MATCH', 'POST_MATCH']), async (req, res) => {
   const { text, fromLang, toLang } = req.body;
   const client = getGeminiClient();
 
@@ -407,7 +439,7 @@ interface SanitizedVenue {
 }
 
 // 3. COPILOT COMMAND CENTER API proxy route with rate limiting, RBAC, input sanitization, and schema validation
-app.post('/api/gemini/copilot', rateLimiter, enforceRole(['COMMANDER']), async (req, res) => {
+app.post('/api/gemini/copilot', rateLimiter, enforceRole(['COMMANDER']), enforcePhase(['ACTIVE_MATCH']), async (req, res) => {
   const { query, activeIncidents, zonesData, activeVenue } = req.body;
   const client = getGeminiClient();
 
@@ -679,6 +711,7 @@ async function startServer() {
   });
 }
 
-if (process.env.NODE_ENV !== 'test') {
+console.log('--- server.ts loaded with NODE_ENV:', process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development') {
   startServer();
 }
