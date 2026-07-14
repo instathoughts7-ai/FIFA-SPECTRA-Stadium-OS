@@ -1,100 +1,443 @@
-# FIFA SPECTRA: Multimodal Stadium Intelligence & Tournament Operations OS
-### Architectural Blueprint & Smart Stadium OS for the FIFA World Cup 2026 Challenge
+# ⚽ FIFA SPECTRA
+## AI-Powered Tournament Operations Platform for FIFA World Cup 2026
+
+> **Built for the Hack2Skill × Google for Developers – Build with AI Challenge**
+
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+![Google Gemini](https://img.shields.io/badge/Google-Gemini_AI-orange?logo=google)
+![Firebase](https://img.shields.io/badge/Firebase-Google-yellow?logo=firebase)
+![Accessibility](https://img.shields.io/badge/WCAG-2.2_AA-success)
+![Tests](https://img.shields.io/badge/Tests-30%2F30-success)
 
 ---
 
-## 1. Product Vision & Operational Context
-The FIFA World Cup 2026 represents an unprecedented scale of complexity: **48 teams, 3 host countries (USA, Canada, Mexico), 16 stadiums, and over 6 million fans**. In this high-stakes, high-density environment, traditional point-based venue apps fail because they are **monolithic, reactive, and linguistically siloed**. 
+# 🌍 Overview
 
-**FIFA SPECTRA** is a unified, multi-agent AI Operating System (AI-OS) that operates as an autonomous, context-aware nervous system for tournament venues. By translating millions of real-time stadium signals—IoT crowd meters, transit telemetry, ticketing barcodes, and live multilingual voice feeds—into structured, collaborative agentic workflows, SPECTRA optimizes matched-day experience for all user groups.
+The **FIFA World Cup 2026** will be the largest tournament ever hosted:
 
----
+- ⚽ 48 National Teams
+- 🌎 3 Host Countries
+- 🏟️ 16 Stadiums
+- 👥 Millions of Fans
 
-## 2. Elevator Pitch
-> For fans, volunteers, and emergency coordinators navigating the massive scale of the FIFA World Cup 2026, **FIFA SPECTRA** is a unified, multi-agent AI operating system that turns complex stadium signals into seamless, safe matchdays. Unlike static venue applications, SPECTRA deploys an interconnected **Federated Agent Mesh (FAM)** of 10 specialized Google Cloud-powered AI agents working in unison. By fusing Gemini 2.5's deep reasoning with Google Maps Platform and Firebase, SPECTRA automates crowd routing, enables zero-latency multilingual voice translation, schedules predictive transit dispatches, and delivers instant operational intelligence to venue commanders—ensuring a secure, accessible, and legendary tournament for everyone.
+Managing crowd movement, multilingual communication, emergencies, transportation, accessibility, sustainability, and venue operations simultaneously requires more than a traditional stadium application.
 
----
-
-## 3. Five Core User Personas & Adaptive Portals
-SPECTRA adapts its interface and client-side execution boundaries based on active user context:
-1. **👤 Fan (SPECTRA Companion Portal):** Focuses on friction-free ticket verification, dynamic navigation (fastest, step-free accessible, sensory-friendly paths), and a live Gemini-powered multilingual chat concierge.
-2. **👕 Volunteer (Vanguard Assistant Portal):** Focuses on GPS-routed task queues, a live conversation translation bridge (voice-to-voice simulation), and a localized handbook search engine.
-3. **🩺 Emergency Responder (Medical/Security Tactical Portal):** Focuses on real-time victim telemetry, automated lift and barrier overrides, and step-free navigation routing to emergencies.
-4. **👮 Security Officer (Sentinel Portal):** Focuses on real-time crowd density alarms, perimeter sensor telemetry, and tactical geofenced broadcasts.
-5. **👔 Venue Commander (Spectra Command Dashboard):** Focuses on unified spatial maps, active incident stream queues, and the **Organizer Operations Copilot**—a Gemini-powered strategy assistant.
+**FIFA SPECTRA** is an **AI-powered Tournament Operations Platform** that enables intelligent, real-time coordination between fans, volunteers, emergency responders, security teams, and tournament operations directors using **Google Gemini AI**.
 
 ---
 
-## 4. The Federated Agent Mesh (FAM) Architecture
-SPECTRA runs on a collaborative agentic model, where 10 specialized micro-agents communicate via a secure Pub/Sub events backbone:
+# 🚀 Elevator Pitch
+
+FIFA SPECTRA transforms stadium management into an intelligent **Tournament Operations Platform** by combining AI decision support, real-time operational intelligence, cross-venue coordination, multilingual communication, and Human-in-the-Loop approvals.
+
+Unlike traditional dashboards, SPECTRA enables tournament officials to make faster, safer, and more informed operational decisions throughout the complete matchday lifecycle.
+
+---
+
+# 🎯 Challenge Alignment
+
+This project directly addresses the FIFA World Cup 2026 challenge by delivering:
+
+✅ Smart Stadium Operations
+
+✅ AI Decision Support
+
+✅ Human-in-the-Loop Workflows
+
+✅ Cross-Venue Coordination
+
+✅ Crowd Intelligence
+
+✅ Incident Management
+
+✅ Fan Mobility Assistance
+
+✅ Volunteer Workforce Coordination
+
+✅ Emergency Operations
+
+✅ Multilingual Communication
+
+✅ Accessibility-First Design
+
+✅ Sustainability Intelligence
+
+---
+
+# 👥 User Personas
+
+## 👤 Fan Mobility Assistant
+
+- AI Navigation
+- Live Crowd Routing
+- Accessibility Routes
+- Ticket Guidance
+- AI Chat Assistant
+- Multilingual Support
+
+---
+
+## 👷 Volunteer Workforce Coordinator
+
+- AI Task Assignment
+- Route Guidance
+- Voice Translation
+- Operational Handbook
+- Incident Reporting
+
+---
+
+## 🚑 Emergency Operations Coordinator
+
+- Live Incident Management
+- Fastest Response Routes
+- Medical Dispatch
+- Operational Intelligence
+
+---
+
+## 👮 Security Operations
+
+- Crowd Density Monitoring
+- Threat Detection
+- Stadium Alerts
+- Emergency Broadcasts
+
+---
+
+## 👨‍💼 Tournament Operations Director
+
+- AI Situational Intelligence
+- Human-in-the-Loop Approval
+- Cross-Venue Resource Coordination
+- Predictive Decision Support
+- Operational Dashboard
+
+---
+
+# 🤖 AI Capabilities
+
+Powered by **Google Gemini**
+
+- AI Operational Copilot
+- Incident Analysis
+- Situation Summaries
+- AI Recommendations
+- Multilingual Translation
+- Command Assistance
+- Operational Intelligence
+
+---
+
+# 🏟️ Core Features
+
+## 🎯 Human-in-the-Loop (HITL)
+
+High-impact operational decisions require explicit human approval before execution.
+
+Examples:
+
+- Crowd Redirection
+- Emergency Gate Opening
+- Resource Redistribution
+- Cross-Venue Mutual Aid
+- Emergency Broadcasts
+
+---
+
+## 🌍 Cross-Venue Coordination
+
+AI continuously evaluates operational load across tournament venues.
+
+Supports:
+
+- Volunteer Redistribution
+- Security Reinforcement
+- Medical Team Allocation
+- Mutual Aid Coordination
+
+---
+
+## 📊 Predictive Crowd Intelligence
+
+AI predicts:
+
+- Congestion
+- Queue Build-up
+- Resource Shortages
+- Crowd Flow
+
+before issues become critical.
+
+---
+
+## 🌐 Multilingual Communication
+
+Google Gemini enables:
+
+- AI Translation
+- Voice Assistance
+- Emergency Communication
+- Accessibility Support
+
+---
+
+## ♿ Accessibility First
+
+Designed with WCAG 2.2 AA principles.
+
+Supports:
+
+- Keyboard Navigation
+- Screen Readers
+- High Contrast
+- Reduced Motion
+- Step-Free Navigation
+
+---
+
+## 🌱 Sustainability Intelligence
+
+Tracks:
+
+- Green Mobility
+- Carbon Impact
+- Waste Diversion
+- Sustainable Transport
+
+---
+
+# 🧠 Tournament Match Lifecycle
+
+The platform supports the complete operational journey:
 
 ```
-                            ┌──────────────────────────────┐
-                            │    Pub/Sub Event Backbone    │
-                            └──────────────┬───────────────┘
-                                           │
-    ┌───────────────────┬──────────────────┼─────────────────┬──────────────────┐
-    ▼                   ▼                  ▼                 ▼                  ▼
-┌───────────┐       ┌───────────┐      ┌───────────┐     ┌───────────┐      ┌───────────┐
-│Navigation │       │   Crowd   │      │  Transit  │     │ Emergency │      │  Accessi- │
-│   Agent   │       │   Agent   │      │   Agent   │     │   Agent   │      │  bility   │
-└───────────┘       └───────────┘      └───────────┘     └───────────┘      └───────────┘
-                                           │
-    ┌───────────────────┬──────────────────┴─────────────────┬──────────────────┐
-    ▼                   ▼                                    ▼                  ▼
-┌───────────┐       ┌───────────┐                        ┌───────────┐      ┌───────────┐
-│ Security  │       │ Volunteer │                        │ Sustainability│  │  Copilot  │
-│   Agent   │       │   Agent   │                        │   Agent   │      │   Agent   │
-└───────────┘       └───────────┘                        └───────────┘      └───────────┘
+Pre-Match
+      │
+      ▼
+Venue Readiness
+      │
+      ▼
+Volunteer Check-In
+      │
+      ▼
+Security Validation
+      │
+      ▼
+Gate Opening
+      │
+      ▼
+Fan Ingress
+      │
+      ▼
+Match Operations
+      │
+      ▼
+AI Decision Support
+      │
+      ▼
+Emergency Response
+      │
+      ▼
+Cross-Venue Coordination
+      │
+      ▼
+Fan Egress
+      │
+      ▼
+Venue Recovery
+      │
+      ▼
+Post-Match Summary
 ```
-
-### The 10 Specialized Agents:
-1. **🧭 Navigation Agent:** Computes shortest, obstacle-free paths. Adapts weights in real-time based on concession/gate congestion indicators.
-2. **👥 Crowd Intelligence Agent:** Monitors CCTV pedestrian counts and turnstile ticks; predicts queuing bottlenecks 15 minutes in advance.
-3. **🚌 Transportation Agent:** Syncs with public transit feeds (GTFS-RT) and parking lot induction loops; guides vehicle dispatch.
-4. **🚨 Emergency Response Agent:** Automatically activates panic alarms, unlocks security gates, and computes priority responder paths.
-5. **♿ Accessibility Agent:** Enforces 100% WCAG 2.2 and mobility compliance; maps elevator availability and generates step-free routing.
-6. **🗣️ Multilingual Communication Agent:** Powers low-latency voice-to-voice translation using `gemini-2.5-flash` to bridge 40+ languages.
-7. **👕 Volunteer Assistant:** Dispatches localized tasks to idle assistants; queries official stadium operations guides.
-8. **👮 Security Intelligence Agent:** Scans for perimeter anomalies and sudden crowd surges indicating localized hazard or blockages.
-9. **🌿 Sustainability Agent:** Monitors utility meters, charging grids, and smart waste bin capacity limits to dispatch cleanup crews.
-10. **🤖 Organizer Operations Copilot:** The commander's strategic assistant. Synthesizes telemetry streams to propose operational checklists.
 
 ---
 
-## 5. Full-Stack Google Cloud & Hybrid Architecture
+# 🏗 Architecture
 
 ```
-       [ IoT Sensors / Camera Metadata / GTFS Feeds ]
-                             │
-                             ▼ (HTTPS POST / TLS 1.3)
-                  ┌──────────────────────┐
-                  │ Google Cloud Pub/Sub │
-                  └──────────┬───────────┘
-                             │ (Push Subscription)
-                             ▼
-                  ┌──────────────────────┐
-                  │  Cloud Run Services  │◄───[ Vertex AI Agent Builder ]
-                  └──────────┬───────────┘
-                             │
-            ┌────────────────┴────────────────┐
-            ▼                                 ▼
-┌───────────────────────┐         ┌───────────────────────┐
-│   Firebase Firestore  │         │   Google BigQuery     │
-│  (Real-Time Database) │         │ (Analytical Cold Lake)│
-└───────────────────────┘         └───────────────────────┘
-```
+                Tournament Operations Platform
 
-* **Ingress (Pub/Sub):** Sensor ticks, CCTV metadata, and transit events stream directly into Pub/Sub queues, shielding the backend databases from sudden halftime request surges.
-* **Orchestration (Cloud Run):** Specialized agents execute as containerized, autoscaling Node/Express microservices, keeping cold-starts low using pre-compiled CommonJS bundles (`dist/server.cjs`).
-* **Database (Firestore):** Holds active matched-day profiles, live geofenced volunteer positions, and active incident coordinates, syncing states instantly to clients.
-* **Analytics (BigQuery):** Retains historical sensor records for offline predictive model training and post-match compliance reports.
-* **Mapping (Google Maps Platform):** Powered by React `@vis.gl/react-google-maps` to display stadium locations, density heatmaps, and custom paths.
+          ┌─────────────────────────────────────┐
+          │         Presentation Layer          │
+          └─────────────────────────────────────┘
+                         │
+                         ▼
+          ┌─────────────────────────────────────┐
+          │         Feature Hooks               │
+          └─────────────────────────────────────┘
+                         │
+                         ▼
+          ┌─────────────────────────────────────┐
+          │         Service Layer               │
+          └─────────────────────────────────────┘
+                         │
+                         ▼
+          ┌─────────────────────────────────────┐
+          │         Domain Models               │
+          └─────────────────────────────────────┘
+                         │
+                         ▼
+          ┌─────────────────────────────────────┐
+          │         Utility Layer               │
+          └─────────────────────────────────────┘
+```
 
 ---
 
-## 6. Comprehensive Testing, Scalability, & Security Strategy
-* **Zero Trust Security:** Every inter-agent message is authorized via Google IAM Service Accounts and encrypted with TLS 1.3. External APIs are rate-limited via Google Cloud Armor.
-* **Granular Firebase Security Rules:** Restricts client access. Fans can only read their tickets; responders can access medical streams; write access to stadium telemetry is locked exclusively to server admin accounts.
-* **Physical & Digital Accessibility:** Visual interfaces support WCAG 2.2 AA. Navigation includes a *Low-Stress Sensory Path* (avoiding high-decibel speaker towers) and step-free wheelchair routing.
-* **Offline-First Resilience:** In the event of cellular tower saturation, SPECTRA Companion utilizes local service workers to cache tickets, basic evacuation maps, and emergency instructions in browser IndexedDB.
+# 📂 Project Structure
+
+```
+src
+│
+├── components
+├── constants
+├── domain
+│   └── models
+├── features
+│   ├── simulation
+│   └── venue-operations
+├── hooks
+├── services
+├── utils
+└── App.tsx
+```
+
+---
+
+# 🛠 Tech Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Tailwind CSS
+
+### Backend
+
+- Node.js
+- Express
+
+### AI
+
+- Google Gemini
+
+### Cloud
+
+- Firebase
+
+### Maps
+
+- Google Maps Platform
+
+---
+
+# 🔐 Security
+
+- Role-Based Access Control (RBAC)
+- Server-side Operational Phase Validation
+- Input Validation
+- Prompt Injection Protection
+- Secure Headers
+- Rate Limiting
+
+---
+
+# ⚡ Performance
+
+- React.memo
+- useMemo
+- useCallback
+- O(1) Lookups
+- API Response Caching
+- Stable Rendering
+
+---
+
+# 🧪 Testing
+
+- ✅ 30/30 Tests Passing
+- Unit Tests
+- Integration Tests
+- API Tests
+- RBAC Validation
+- Operational Workflow Validation
+
+---
+
+# ♿ Accessibility
+
+- WCAG 2.2 AA
+- Keyboard Navigation
+- Screen Reader Support
+- aria-live Regions
+- aria-label Support
+- Focus Management
+
+---
+
+# 🚀 Installation
+
+```bash
+git clone https://github.com/<your-username>/fifa-spectra.git
+
+cd fifa-spectra
+
+npm install
+
+npm run dev
+```
+
+---
+
+# 📸 Demo
+
+**Live Demo**
+
+> https://fifa-spectra-stadium-os.ai.studio/
+
+**GitHub Repository**
+
+> https://github.com/<your-github-username>/fifa-spectra
+
+---
+
+# 👨‍💻 Developer
+
+## Mahesh V. Waghmode
+
+**Cybersecurity Professional | Network Engineer | AI Consultant**
+
+Passionate about building AI-powered solutions for cybersecurity, networking, and intelligent operational platforms.
+
+### Connect with Me
+
+- 💼 LinkedIn: https://linkedin.com/in/maheshwaghmode
+- 💻 GitHub: https://github.com/<your-github-username>
+
+---
+
+# 🙏 Acknowledgements
+
+Built with ❤️ for the **Hack2Skill × Google for Developers – Build with AI Challenge**.
+
+Special thanks to:
+
+- Google for Developers
+- Hack2Skill
+- Google Gemini
+- Firebase
+- React Community
+- TypeScript Community
+
+---
+
+# ⭐ Support
+
+If you found this project interesting, please consider giving it a ⭐ on GitHub.
+
+---
+
+## "Building the Future of AI-Powered Tournament Operations."
