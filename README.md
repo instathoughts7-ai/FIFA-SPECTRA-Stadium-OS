@@ -2,6 +2,9 @@
 ## AI-Powered Tournament Operations & Smart Stadium Operating System
 ### Built for the Hack2Skill × Google for Developers – FIFA World Cup 2026 Challenge
 
+<img width="1222" height="815" alt="image" src="https://github.com/user-attachments/assets/c0976768-4bbe-40da-b2ab-6ed1e175d61c" />
+
+
 <p align="center">
 
 ![React](https://img.shields.io/badge/React-19-blue)
